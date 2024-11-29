@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Qualidade por Câmera Techsure</title>
+    <style>
+        /* Estilo Geral */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+            color: #004080;
+        }
+
+        /* Cabeçalho e Navegação */
+        header {
+            position: sticky;
+            top: 0;
+            background-color: #004080;
+            color: white;
+            padding: 10px 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        header nav {
+            display: flex;
+            justify-content: center;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        header nav a:hover, header nav a.active {
+            background-color: #003366;
+        }
+
+        /* Conteúdo Geral */
+        section {
+            min-height: 100vh;
+            padding: 50px 20px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Estilo da Seção */
+        #home {
+            background-color: #e6f2ff;
+        }
+
+        #camera {
+            background-color: #f0f8ff;
+        }
+
+        #about {
+            background-color: #ffffff;
+        }
+
+        #webcam-container, #result-container {
+            margin: 20px auto;
+        }
+
+        #result-container {
+            display: none;
+            padding: 10px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            border: 1px solid #b3cde3;
+            width: 300px;
+            text-align: left;
+            font-size: 16px;
+        }
+
+        #label-container {
+            margin: 20px auto;
+            font-size: 18px;
+            text-align: center;
+            width: 300px;
+        }
+
+        button {
+            background-color: #004080;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0059b3;
+        }
+
+        button.stop {
+            background-color: #b22222;
+        }
+
+        button.stop:hover {
+            background-color: #d32f2f;
+        }
+
+        button.pause {
+            background-color: #ff8c00;
+        }
+
+        button.pause:hover {
+            background-color: #ffa500;
+        }
+
+        .class-label {
+            margin: 5px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #004080;
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <nav>
+            <a href="#home" class="active" onclick="scrollToSection('home')">Home</a>
+            <a href="#camera" onclick="scrollToSection('camera')">Controle de Qualidade por Câmera</a>
+            <a href="#about" onclick="scrollToSection('about')">Quem Somos</a>
+        </nav>
+    </header>
+
+    <!-- Seções -->
+    <section id="home">
+        <h1 style="
+            font-size: 80px; /* Tamanho grande do título */
+            font-weight: bold; /* Deixa o texto em negrito */
+            color: #003366; /* Cor azul escura */
+            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3); /* Adiciona sombreamento ao texto */
+            margin-bottom: 20px; /* Espaço inferior */
+        ">
+            Techsure
+        </h1>
+        <p>Techsure é um sistema desenvolvido pelo grupo 'Luluzinhas' como parte do Projeto Integrador do 4º semestre do curso de Engenharia da Computação. O sistema foi projetado para oferecer soluções de controle de qualidade utilizando tecnologias de visão computacional e inteligência artificial, com foco na área de engenharia hospitalar.</p>
+        
+        <h3>Conheça nosso processo de produção</h3>
+        <p>O processo de produção abrangeu diversas etapas fundamentais, incluindo o desenvolvimento e construção da esteira transportadora, o projeto e montagem da garra mecânica, a elaboração e integração do circuito eletrônico, bem como a implementação de um sistema de inteligência artificial. </p>
+        
+        <div class="production-process">
+            <!-- Espaço para texto adicional -->
+            <p> Toda a estrutura foi projetada de forma original, com modelagem desenvolvida a partir de conceitos próprios, e construída no Laboratório de Design Industrial. Abaixo, estão apresentadas algumas imagens que retratam as etapas do processo de produção.</p>
+    
+            <!-- Espaço para imagens -->
+<div class="production-images">
+    <!-- Primeira linha de imagens -->
+    <img src="imagens site/processo1.jpg" alt="Imagem do processo 1" width="300" height="200">
+    <img src="imagens site/processo2.jpg" alt="Imagem do processo 2" width="300" height="200">
+    <img src="imagens site/processo3.jpg" alt="Imagem do processo 3" width="300" height="200">
+</div>
+
+<div class="production-images">
+    <!-- Segunda linha de imagens -->
+    <img src="imagens site/processo4.jpg" alt="Imagem do processo 4" width="300" height="200">
+    <img src="imagens site/processo5.PNG" alt="Imagem do processo 5" width="300" height="200">
+    <img src="imagens site/processo6.jpg" alt="Imagem do processo 6" width="300" height="200">
+</div>
+
+
+    <section id="camera">
+        <h2>Controle de Qualidade por Câmera</h2>
+        <button id="start-button" type="button" onclick="startProcess()">Iniciar</button>
+        <button id="pause-button" type="button" class="pause" onclick="pauseProcess()">Pausar e Analisar Resultados</button>
+        <button id="stop-button" type="button" class="stop" onclick="stopProcess()">Parar</button>
+        <div id="webcam-container"></div>
+        <div id="label-container"></div>
+        <div id="result-container">
+            <h3>Resultados da Análise:</h3>
+            <p id="best-result"></p>
+        </div>
+    </section>
+
+    <section id="about">
+    
+    
+
+ 
+        <h2>Quem Somos</h2>
+        <p>Somos estudantes do 4º semestre do curso de Engenharia da Computação, e desenvolvemos este site com o objetivo de apresentar e demonstrar o funcionamento da inteligência artificial criada como parte do projeto integrador semestral. </p>
+        
+        <div class="team-container">
+            <!-- Integrante 1 -->
+            <div class="team-member">
+                <div class="circle">
+                    <img src="imagens site/gi.jpg" alt="Integrante 1" width="150" height="190">
+                </div>
+                <p>Giovanna Hototian</p>
+            </div>
+        
+            <!-- Integrante 2 -->
+            <div class="team-member">
+                <div class="circle">
+                    <img src="imagens site/isa.jpg" alt="Integrante 2" width="150" height="200">
+                </div>
+                <p>Isabelle Reginnette</p>
+            </div>
+        
+            <!-- Integrante 3 -->
+            <div class="team-member">
+                <div class="circle">
+                    <img src="imagens site/ju.jpg" alt="Integrante 3" width="130" height="200">
+                </div>
+                <p>Julya Dias</p>
+            </div>
+        
+            <!-- Integrante 4 -->
+            <div class="team-member">
+                <div class="circle">
+                    <img src="imagens site/karol.jpg" alt="Integrante 4" width="200" height="200">
+                </div>
+                <p>Karolaine Helena</p>
+            </div>
+        
+            <!-- Integrante 5 -->
+            <div class="team-member">
+                <div class="circle">
+                    <img src="imagens site/kim.jpg" alt="Integrante 5" width="140" height="200">
+                </div>
+                <p>Kimberly Germano</p>
+            </div>
+            <div class="team-member">
+                <div class="circle">
+                    <img src="imagens site/engenharia.jpg" alt="Integrante 5" width="300" height="200">
+                </div>
+        </div>
+        
+
+    <!-- Script -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+    <script>
+        const URL = "https://teachablemachine.withgoogle.com/models/qvFvfO-1_/";
+
+        let model, webcam, labelContainer, maxPredictions, running = false, paused = false;
+
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function handleScroll() {
+            const sections = document.querySelectorAll('section');
+            const scrollTop = window.scrollY + window.innerHeight * 0.75; // 75% da altura da tela
+            sections.forEach((section) => {
+                if (section.offsetTop < scrollTop) {
+                    section.classList.add('visible');
+                }
+            });
+        }
+
+        async function startProcess() {
+            if (running) return;
+            running = true;
+            paused = false;
+            document.getElementById("result-container").style.display = "none";
+
+            const modelURL = URL + "model.json";
+            const metadataURL = URL + "metadata.json";
+
+            model = await tmImage.load(modelURL, metadataURL);
+            maxPredictions = model.getTotalClasses();
+
+            const flip = true;
+            webcam = new tmImage.Webcam(300, 300, flip);
+            await webcam.setup();
+            await webcam.play();
+            window.requestAnimationFrame(loop);
+
+            const webcamCanvas = webcam.canvas;
+            webcamCanvas.id = "webcam-feed";
+            document.getElementById("webcam-container").appendChild(webcamCanvas);
+
+            labelContainer = document.getElementById("label-container");
+            labelContainer.innerHTML = "";
+            for (let i = 0; i < maxPredictions; i++) {
+                const labelDiv = document.createElement("div");
+                labelDiv.classList.add("class-label");
+                labelContainer.appendChild(labelDiv);
+            }
+        }
+
+        async function loop() {
+            if (!running || paused) return;
+            await webcam.update();
+            await predict();
+            window.requestAnimationFrame(loop);
+        }
+
+        async function predict() {
+            const prediction = await model.predict(webcam.canvas);
+            for (let i = 0; i < maxPredictions; i++) {
+                const classPrediction = `${prediction[i].className}: ${(prediction[i].probability * 100).toFixed(2)}%`;
+                labelContainer.childNodes[i].innerHTML = classPrediction;
+            }
+        }
+
+        function pauseProcess() {
+            if (!running || paused) return;
+            paused = true;
+
+            model.predict(webcam.canvas).then((prediction) => {
+                const best = prediction.reduce((prev, current) => 
+                    prev.probability > current.probability ? prev : current);
+
+                document.getElementById("result-container").style.display = "block";
+                document.getElementById("best-result").innerHTML = 
+                    `<span class="highlight">Classe Principal:</span> ${best.className} (${(best.probability * 100).toFixed(2)}%)`;
+            });
+        }
+
+        function stopProcess() {
+            if (!running) return;
+            running = false;
+            paused = false;
+
+            if (webcam) {
+                webcam.stop();
+                document.getElementById("webcam-container").innerHTML = "";
+            }
+
+            if (labelContainer) {
+                labelContainer.innerHTML = "";
+            }
+            document.getElementById("result-container").style.display = "none";
+        }
+
+        window.addEventListener('scroll', handleScroll);
+        document.addEventListener('DOMContentLoaded', handleScroll);
+    </script>
+</body>
+</html>
